@@ -1,0 +1,50 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671
+{\fonttbl\f0\fswiss\fcharset0 Helvetica-Oblique;\f1\fswiss\fcharset0 Helvetica-BoldOblique;\f2\fswiss\fcharset0 Helvetica;
+\f3\fswiss\fcharset0 Helvetica-Bold;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww22560\viewh13940\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\i\fs24 \cf0 \
+
+\f1\b\fs36 Audio Bit-Depth Detection - Octave Project
+\f2\i0\b0\fs24 \
+\
+
+\f3\b Developers:
+\f2\b0  Matt Fagan, with contributions from Dr. William Brent\
+\
+
+\f3\b Date Created: 
+\f2\b0 Dec 7, 2015\
+\
+
+\f3\b Required Software:
+\f2\b0 \
+\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\uc0\u8226 	}Octave or MATLAB\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+====================================\
+\
+
+\f3\b Description:
+\f2\b0 \
+\
+To determine the bit depth of an audio file you can look at the file info (for example by pressing command-i on a Mac) and view the bit depth of the audio file. This is not necessarily the accurate bit depth of the audio file, rather it is a metadata tag. It tells the user the bit depth at which the file was rendered. If we go into a DAW, import a 16-bit wav file and then export it as a 24-bit .wav file, the file info accessible with command-i will tell us that the newly exported file is 24 bits. We know, however, that this is inaccurate because it is not possible to increase the bit depth of a file. Bit reduction is possible, but the opposite is not possible. By rendering a 16-bit file to a 24-bit file we are simply filling in the remaining spaces with zeros and editing the metadata, but not increasing the resolution of the file.\
+\
+An audio engineer may ask a client to send track stems in 24-bit format, and the engineer receives the files but has no way to actually determine the 
+\f0\i actual
+\f2\i0  bit depth of the audio files. They only available indicator is the metadata, and as we have determined in the previous paragraph, this is not necessarily accurate.\
+\
+The included bit depth detection program uses Octave to analyze an uploaded .wav file to determine the 
+\f0\i actual
+\f2\i0  bit depth of the .wav file. The audio file is scanned for periods of silence, and then the smallest nonzero amplitude change between neighboring samples is found to determine the bit depth of the file. The included scripts provide comments for a more accurate explanation of each step of the bit depth detection process.\
+\
+It is possible to advance this project by converting it for consumer use. The end result may bes a window that the user can open and then drag-and-drop a .wav file to view text that states the detected bit depth of the file.\
+\
+}
